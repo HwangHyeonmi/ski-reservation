@@ -13,14 +13,16 @@ const StyledContainer = styled.div`
   max-width: 1200px;
 `;
 
+interface props {
+  children: JSX.Element;
+}
+
 const MainContainer = () => {
   return (
-    <StyledContainer>
-      <Header />
+    <>
       <SearchBox />
       <MainBody />
-      <Footer />
-    </StyledContainer>
+    </>
   );
 };
 

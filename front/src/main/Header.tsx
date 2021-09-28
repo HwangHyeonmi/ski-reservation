@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 const StyledHeader = styled.div`
   border-radius: 0.25rem;
   font-size: 1rem;
@@ -18,8 +19,15 @@ const StyledHeader = styled.div`
 const Header = () => {
   return (
     <StyledHeader>
-      <Button variant="outlined">LOGO </Button>
-      <Button variant="outlined">예약조회</Button>
+      <Button variant="outlined">
+        <Link to="/">LOGO</Link>{" "}
+      </Button>
+      <Button variant="outlined">
+        <Link to="/detail">상세페이지</Link>{" "}
+      </Button>
+      <Button variant="outlined">
+        <Link to="/confirmReservation">예약조회</Link>
+      </Button>
     </StyledHeader>
   );
 };

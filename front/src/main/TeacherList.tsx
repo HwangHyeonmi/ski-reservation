@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router";
 import styled from "styled-components";
 import CustomCard from "../components/CustomCard";
 
@@ -15,13 +16,16 @@ const StyledTeacherList = styled.div`
 `;
 
 const TeacherList = () => {
-  const onCardClick = () => {};
+  const history = useHistory();
+  const onCardClick = (id: number) => {
+    history.push(`/detail/${id}`);
+  };
   const teacherList = [
-    { name: "황현미", region: "서울", score: 3.3, review: 3 },
-    { name: "황현미", region: "서울", score: 3.3, review: 3 },
-    { name: "황현미", region: "서울", score: 3.3, review: 3 },
-    { name: "황현미", region: "서울", score: 3.3, review: 3 },
-    { name: "황현미", region: "서울", score: 3.3, review: 3 },
+    { id: 0, name: "황현미", region: "서울", score: 3.3, review: 3 },
+    { id: 1, name: "황현미", region: "서울", score: 3.3, review: 3 },
+    { id: 2, name: "황현미", region: "서울", score: 3.3, review: 3 },
+    { id: 3, name: "황현미", region: "서울", score: 3.3, review: 3 },
+    { id: 4, name: "황현미", region: "서울", score: 3.3, review: 3 },
   ];
 
   return (
@@ -29,7 +33,10 @@ const TeacherList = () => {
       {teacherList.map((val, key) => {
         return (
           <CustomCard
-            onClick={onCardClick}
+            id={val.id}
+            onClick={() => {
+              onCardClick(val.id);
+            }}
             name={val.name}
             region={val.region}
             score={val.score}

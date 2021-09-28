@@ -20,6 +20,7 @@ interface ExpandMoreProps extends IconButtonProps {
 }
 
 interface cardProps {
+  id?: number;
   name?: string;
   region?: string;
   score?: number;
@@ -40,6 +41,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 
 export default function CustomCard({
   onClick,
+  id,
   name,
   region,
   score,
