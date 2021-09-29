@@ -1,5 +1,4 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -8,13 +7,23 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 interface props {
   name: string;
   selectArray: Array<string>;
+  getSelectVal: (val: string, id: number) => void;
+  id: number;
+  currentVal: string;
 }
 
-export default function CustomSelect({ name, selectArray }: props) {
-  const [age, setAge] = React.useState("");
+export default function CustomSelect({
+  name,
+  selectArray,
+  getSelectVal,
+  id,
+  currentVal,
+}: props) {
+  const [state, setState] = React.useState(currentVal);
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
+    setState(event.target.value as string);
+    getSelectVal(event.target.value, id);
   };
 
   return (
@@ -23,12 +32,17 @@ export default function CustomSelect({ name, selectArray }: props) {
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"
-        value={age}
+        value={state}
+        defaultValue={currentVal}
         label="Age"
         onChange={handleChange}
       >
         {selectArray.map((val, key) => {
-          return <MenuItem value={key}>{val}</MenuItem>;
+          return (
+            <MenuItem value={val} key={key}>
+              {val}
+            </MenuItem>
+          );
         })}
       </Select>
     </FormControl>

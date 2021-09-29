@@ -70,19 +70,19 @@ class ApiPort {
         }
     }
 
-    public async insertGameResult(gameResult:any) {
+  /*   public async insertGameResult(gameResult:any) {
         return await this.asyncPost(this.serverUri, gameResult);
     }
-
-    public async getGameResult() {
-        return (await this.asyncGet(this.serverUri)).json();
+ */
+    public async getTeacherList() {
+        return (await this.asyncGet( `${this.serverUri}/teacherList`)).json();
     }
 
-    private async insertGameData(gameData:any) {
+   /*  private async insertGameData(gameData:any) {
         let uri = `${this.serverUri}/gameData`;
 
         return await this.asyncPost(uri, gameData);
-    }
+    } */
 
     public async getReservation(data:any){
       let uri = `${this.serverUri}/confirmReservation`

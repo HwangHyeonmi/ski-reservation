@@ -1,12 +1,12 @@
 import "./App.css";
 import MainContainer from "./main/MainContainer";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import DetailPage from "./sub/DetailPage";
-import Header from "./main/Header";
 import CommonLayOut from "./layout/CommonLayOut";
 import Payment from "./sub/Payment";
 import PaymentCompletion from "./sub/PaymentCompletion";
 import ComfirmReservation from "./sub/ConfirmReservation";
+import InputUserInfo from "./sub/InputUserInfo";
 function App() {
   return (
     <div className="App">
@@ -22,9 +22,10 @@ function App() {
           <Route exact path="/payment" component={Payment}></Route>
           <Route
             exact
-            path="/paymentCompetion"
+            path="/PaymentCompletion"
             component={PaymentCompletion}
           ></Route>
+          <Route exact path="/InputUserInfo" component={InputUserInfo}></Route>
           <Route
             exact
             path="/confirmReservation"

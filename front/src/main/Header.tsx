@@ -22,9 +22,9 @@ const Header = () => {
       <Button variant="outlined">
         <Link to="/">LOGO</Link>{" "}
       </Button>
-      <Button variant="outlined">
+      {/*  <Button variant="outlined">
         <Link to="/detail">상세페이지</Link>{" "}
-      </Button>
+      </Button> */}
       <Button variant="outlined">
         <Link to="/confirmReservation">예약조회</Link>
       </Button>

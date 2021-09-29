@@ -1,26 +1,16 @@
-import React from "react";
-import Footer from "./Footer";
-import Header from "./Header";
 import MainBody from "./MainBody";
-import styled from "styled-components";
 import SearchBox from "./SearchBox";
+import { atom } from "recoil";
 
-const StyledContainer = styled.div`
-  border-radius: 0.25rem;
-  border: 1px solid lightgray;
-  backgroud: white;
-  margin: 0 auto;
-  max-width: 1200px;
-`;
-
-interface props {
-  children: JSX.Element;
-}
+export const filterValue = atom({
+  key: "filterValue",
+  default: [""],
+});
 
 const MainContainer = () => {
   return (
     <>
-      <SearchBox />
+      <SearchBox searchval={true} />
       <MainBody />
     </>
   );

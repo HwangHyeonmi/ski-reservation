@@ -21,7 +21,8 @@ MongoClient.connect(url, { useUnifiedTopology: true }, function (에러, client)
   });
 });
 
-app.get("/confirmReservation", function (req, res) {
+app.post("/confirmReservation", function (req, res) {
+  console.log(req.body);
   let id = req.body.id;
   let Orders = db.collection("payment-result");
 
@@ -31,23 +32,18 @@ app.get("/confirmReservation", function (req, res) {
   });
 });
 
+app.get("/teacherList", function (req, res) {
+  db.collection("lecturer")
+    .find()
+    .toArray(function (error, result) {
+      res.send(result);
+    });
+});
+
 app.post("/payments/complete", async (req, res) => {
   let Orders = db.collection("payment-result");
   try {
     const { imp_uid, merchant_uid } = req.body;
-    /* 
-    db.collection("payment-result").insertOne(
-      { _id: merchant_uid, amout: amount, name: name },
-      function (에러, 결과) {
-        res.redirect("/");
-        if (에러) {
-          console.log("에러", 에러);
-        } else {
-          console.log("결과", 결과);
-        }
-      }
-    ); */
-
     // 액세스 토큰(access token) 발급 받기
     const getToken = await axios({
       url: "https://api.iamport.kr/users/getToken",
@@ -85,7 +81,9 @@ app.post("/payments/complete", async (req, res) => {
           {
             _id: merchant_uid,
             amount: paymentData.amount,
-            name: paymentData.buyer_name,
+            buyer_name: paymentData.buyer_name,
+            name: paymentData.name,
+            buyer_tel: paymentData.buyer_tel,
           },
           function (에러, 결과) {
             if (에러) {
