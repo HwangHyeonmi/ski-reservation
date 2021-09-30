@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Button from "@mui/material/Button";
 import CustomSelect from "../components/CustomSelect";
 import { atom, useRecoilValue, useSetRecoilState } from "recoil";
+import CustomButton from "../components/CustomButton";
 const StyledSearchBox = styled.div`
   border-radius: 0.25rem;
   border: 1px solid lightgray;
@@ -107,7 +107,9 @@ const SearchBox = ({ searchval }: props) => {
         selectArray={personnelArray}
         id={4}
       />
-      {searchval && <Button variant="outlined">검색하기</Button>}
+      {searchval &&
+      <CustomButton name="검색하기"></CustomButton>
+        }
     </StyledSearchBox>
   );
 };

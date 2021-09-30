@@ -5,6 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import { Button } from "@mui/material";
 
+
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -59,24 +60,28 @@ export default function CustomSearch({ getChildInputVal }: props) {
   };
 
   return (
-    <Box style={{ display: "flex" }}>
-      <Search>
+    <Box style={{ display: "flex",height:"50px" }}>
+      <div style={{margin: "0 auto", width:"70%", display:"flex"}}>
+      <Search style={{width:"90%"}}>
         <SearchIconWrapper>
           <SearchIcon />
         </SearchIconWrapper>
         <StyledInputBase
+          style={{width:"100%",height:"100%"}}
           onChange={onChange}
           placeholder="주문번호를 입력하세요"
           inputProps={{ "aria-label": "search" }}
         />
       </Search>
       <Button
+        variant="contained"
         onClick={() => {
           getChildInputVal(inputVal);
         }}
-      >
-        확인
-      </Button>
+      >확인</Button>
+      </div>
+       
+     
     </Box>
   );
 }

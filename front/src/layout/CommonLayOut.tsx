@@ -10,6 +10,8 @@ const StyledContainer = styled.div`
   backgroud: white;
   margin: 0 auto;
   max-width: 1200px;
+  
+  box-sizing:border-box;
 `;
 
 interface props {

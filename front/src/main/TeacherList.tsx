@@ -28,9 +28,8 @@ const TeacherList = () => {
   const teacherList = useRecoilValue(teacherInfo);
   useEffect(() => {
     apiPort.getTeacherList().then((res) => {
-      console.log(res);
+    
       //setTeacherInfo(res);
-
       setTeacherInfo(res);
     });
 

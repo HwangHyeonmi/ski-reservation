@@ -1,6 +1,6 @@
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-
+import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
 
 interface cardProps {
@@ -21,9 +21,9 @@ export default function CustomCard({
   review,
 }: cardProps) {
   return (
-    <Card onClick={onClick} sx={{ maxWidth: 345, margin: "15px" }}>
-      <CardContent>
-        <div style={{ width: "300px", height: "300px", overflow: "hidden" }}>
+    <Card onClick={onClick} sx={{ maxWidth: 250, margin: "15px" }}>
+      <CardContent style={{padding:0}}>
+        <div style={{ width: "250px", height: "250px", overflow: "hidden" }}>
           {id && (
             <img
               alt="lecturer"
@@ -32,15 +32,20 @@ export default function CustomCard({
             />
           )}
         </div>
-        <div>{name} 강사님</div>
-        <br />
-        <Typography variant="body2" color="text.first">
-          {`위치 ${region}`}
-        </Typography>
-        <br />
-        <Typography variant="body2" color="text.secondary">
-          {`평점${score}`} {`리뷰${review}`}
-        </Typography>
+        <div style={{padding:"10px", boxSizing:"border-box"}}>
+          <div>{name} 강사님</div>
+          <br />
+          <Typography variant="body2" color="text.first">
+            {` ${region}`}
+          </Typography>
+          <br />
+          <Typography variant="body2" color="text.secondary">
+        평점 : <Rating style={{fontSize:"1rem",top:"2px"}} name="read-only" value={score} readOnly /> 
+        | {`리뷰 : ${review}개`}
+          </Typography>
+       
+         
+        </div>
       </CardContent>
     </Card>
   );

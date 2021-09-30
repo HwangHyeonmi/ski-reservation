@@ -43,7 +43,7 @@ app.get("/teacherList", function (req, res) {
 app.post("/payments/complete", async (req, res) => {
   let Orders = db.collection("payment-result");
   try {
-    const { imp_uid, merchant_uid } = req.body;
+    const { imp_uid, merchant_uid,place,date,time,personel } = req.body;
     // 액세스 토큰(access token) 발급 받기
     const getToken = await axios({
       url: "https://api.iamport.kr/users/getToken",
@@ -74,7 +74,7 @@ app.post("/payments/complete", async (req, res) => {
     const { amount, status } = paymentData;
 
     //결제금액 일치. 결제 된 금액 ===결제 되어야 하는 금액
-
+    console.log(paymentData);
     switch (status) {
       case "paid":
         await Orders.insertOne(
@@ -84,6 +84,10 @@ app.post("/payments/complete", async (req, res) => {
             buyer_name: paymentData.buyer_name,
             name: paymentData.name,
             buyer_tel: paymentData.buyer_tel,
+            place:place,
+            date:date,
+            time:time,
+            personel:personel,
           },
           function (에러, 결과) {
             if (에러) {

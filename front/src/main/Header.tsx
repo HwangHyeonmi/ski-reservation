@@ -19,8 +19,8 @@ const StyledHeader = styled.div`
 const Header = () => {
   return (
     <StyledHeader>
-      <Button variant="outlined">
-        <Link to="/">LOGO</Link>{" "}
+      <Button variant="text">
+        <Link to="/">Daiski</Link>{" "}
       </Button>
       {/*  <Button variant="outlined">
         <Link to="/detail">상세페이지</Link>{" "}

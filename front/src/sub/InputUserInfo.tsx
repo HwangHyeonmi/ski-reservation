@@ -1,8 +1,7 @@
 import TextField from "@mui/material/TextField";
-import { useState } from "react";
 import { useHistory } from "react-router";
-import { atom, useRecoilValue, useSetRecoilState } from "recoil";
-import styled from "styled-components";
+import { atom, useSetRecoilState } from "recoil";
+import CustomButton from "../components/CustomButton";
 
 export const userName = atom({
   key: "userName",
@@ -33,14 +32,7 @@ const InputUserInfo = () => {
     setPhone(e.currentTarget.value);
   };
 
-  const ButtonStyle = styled.div`
-    width: 30%;
-    height: 50px;
-    line-height: 50px;
-    border: 1px solid gray;
-    text-align: center;
-    box-sizing: border-box;
-  `;
+
   return (
     <div
       style={{ marginBottom: "20px", padding: "20px", boxSizing: "border-box" }}
@@ -63,16 +55,12 @@ const InputUserInfo = () => {
           variant="outlined"
           onChange={onPhoneNumberChange}
         />
-        <ButtonStyle
-          onClick={() => {
+        <br />
+
+          <CustomButton name="결제하기" onClick={()=>{
             history.push(`/payment`);
-          }}
-          style={{
-            width: "80%",
-          }}
-        >
-          결제하기
-        </ButtonStyle>
+          }} />
+       
         <br />
       </div>
     </div>
