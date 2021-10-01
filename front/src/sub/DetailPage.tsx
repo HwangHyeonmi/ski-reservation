@@ -7,6 +7,9 @@ import { teacherInfo } from "../main/TeacherList";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
 import CustomButton from "../components/CustomButton";
+import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
+
 
 interface props {
   id: string;
@@ -73,13 +76,23 @@ const DetailPage = (id: props) => {
          
         </StyledBox>
       </div>
-      <div style={{ width: "100%",padding:"20px 0 50px 20px"  }}>
+      <div style={{ width: "100%",padding:"20px 20px 50px 20px", boxSizing:"border-box"  }}>
         <h2>상세정보</h2>
         <p>신난다 스키강습 즐겨보자~</p>
       </div>
-      <div style={{width:"100%", padding:"20px 0 50px 20px"}}>
-        <h2>후기 작성란</h2>
+      <div style={{width:"100%", padding:"20px 20px 50px 20px", boxSizing:"border-box"}}>
+        <div style={{display:"flex"}}>
+          <h2>후기 작성란</h2>
+          
+        </div>
+        <Button style={{left:"90%"}} onClick={()=>{
+          alert("준비중입니다")
+        }}>
+              + 후기 작성하기
+        </Button>
+        
         <div style={{ display: "flex", flexWrap: "wrap" }}>
+          
           {review.map((val, key) => {
             return (
               <div key={key} style={{padding:"10px", width: "50%", height: "100px",border:"1px solid gray",boxSizing:"border-box" }}>

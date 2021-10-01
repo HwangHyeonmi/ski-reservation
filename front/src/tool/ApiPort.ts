@@ -67,6 +67,7 @@ class ApiPort {
         }
         catch (e) {
             throw new Error("GET error" + e);
+            
         }
     }
 

@@ -3,6 +3,8 @@ import { useRecoilValue } from "recoil";
 import { apiPort } from "../tool/ApiPort";
 import { buyerInfo } from "./Payment";
 import styled from "styled-components";
+import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 const StyledRow = styled.div`
 border-bottom:1px solid gray;
@@ -77,7 +79,7 @@ const PaymentCompletion = () => {
               <StyledRow>
                 <StyledColumn1>
                 결제금액  </StyledColumn1>
-                <StyledColumn2> {userInfo.amount?userInfo.amount:""}</StyledColumn2>
+                <StyledColumn2> {userInfo.amount?userInfo.amount:""}원</StyledColumn2>
               </StyledRow>
               <StyledRow>
                 <StyledColumn1>
@@ -100,6 +102,12 @@ const PaymentCompletion = () => {
                 <StyledColumn2>{userInfo.personel?userInfo.personel:""}</StyledColumn2>
             </StyledRow>
             </div>
+            
+          </div>
+          <div style={{textAlign:"center", marginTop:"20px"}}>
+          <Button variant="outlined">
+              <Link to="/confirmReservation">예약조회</Link>
+          </Button>
           </div>
     </div>
   );

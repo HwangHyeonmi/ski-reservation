@@ -33,7 +33,7 @@ export default function CustomCard({
           )}
         </div>
         <div style={{padding:"10px", boxSizing:"border-box"}}>
-          <div>{name} 강사님</div>
+          <div><span style={{fontWeight:800}}>{name}</span> 강사님</div>
           <br />
           <Typography variant="body2" color="text.first">
             {` ${region}`}

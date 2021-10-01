@@ -149,7 +149,7 @@ const Payment = () => {
     <div
       style={{ marginBottom: "20px", padding: "20px", boxSizing: "border-box" }}
     >
-      <h2>결제 정보</h2>
+  {/*     <h2>결제 정보</h2> */}
       <div style={{border:"1px solid gray",margin:"30px 0",boxSizing:"border-box"}}>
           <h3 style={{borderBottom:"1px solid gray", margin:0,padding:"10px"}}>예약정보</h3>
           <div style={{ display: "flex" }}>

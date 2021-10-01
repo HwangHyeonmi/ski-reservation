@@ -17,20 +17,31 @@ const StyledTeacherList = styled.div`
   flex-wrap: wrap;
 `;
 
+interface ITeacherInfo {
+  id:number,
+  name:string,
+  region:string,
+  score:number,
+  review:number
+}
+
 export const teacherInfo = atom({
   key: "teacherInfo",
-  default: [{ id: 0, name: "", region: "", score: 0, review: 0 }],
+  default: [],
 });
 
 const TeacherList = () => {
   const history = useHistory();
   const setTeacherInfo = useSetRecoilState(teacherInfo);
-  const teacherList = useRecoilValue(teacherInfo);
+  const teacherList = useRecoilValue<ITeacherInfo[]>(teacherInfo);
   useEffect(() => {
     apiPort.getTeacherList().then((res) => {
     
       //setTeacherInfo(res);
-      setTeacherInfo(res);
+      if(res){
+        setTeacherInfo(res);
+      }
+      
     });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -66,7 +77,7 @@ const TeacherList = () => {
       </StyledTeacherList>
     );
   } else {
-    return null;
+    return <p>조회할 데이터가 없습니다.</p>;
   }
 };
 
