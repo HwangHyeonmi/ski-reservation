@@ -91,6 +91,6 @@ class ApiPort {
     }
 }
 
-const apiPort = new ApiPort("http://localhost:8080");
+const apiPort = new ApiPort("https://ski-reservation-server.du.r.appspot.com");
 
 export { apiPort }
